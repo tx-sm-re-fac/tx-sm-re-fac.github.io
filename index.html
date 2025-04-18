@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Access Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0e0e0e;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .gate {
+      text-align: center;
+      background: #111;
+      padding: 40px;
+      border: 1px solid #333;
+    }
+    input {
+      padding: 10px;
+      border: none;
+      width: 200px;
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #005;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="gate">
+    <h2>Enter Access Key</h2>
+    <input type="password" id="password!" placeholder="Access Key" />
+    <br />
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("password").value;
+      if (pass === "MC28onCC!") {
+        window.location.href = "home.html"; // Change this to your real homepage
+      } else {
+        document.getElementById("error").textContent = "Invalid access key.";
+      }
+    }
+  </script>
+</body>
+</html>
