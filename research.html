@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TSMRF - Research Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    main {
+      text-align: center;
+      padding: 4rem;
+    }
+
+    #classified {
+      display: none;
+      text-align: left;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #111;
+      color: #0f0;
+      padding: 2rem;
+      border: 2px solid #0f0;
+      font-family: "Courier New", monospace;
+    }
+
+    input[type="password"] {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    #error {
+      color: red;
+      margin-top: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="assets/tsmrf-logo.png" alt="TSMRF Logo" />
+      <h1>Texas Smith Mountains Research Facility</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="creatures.html">Creatures</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="auth">
+      <h2>Restricted Research Access</h2>
+      <p>Enter authorized password to continue:</p>
+      <input type="password" id="password" placeholder="Enter Password"/>
+      <br>
+      <button onclick="checkPassword()">Enter</button>
+      <div id="error">Unauthorized access detected. Initiating protocol.</div>
+    </div>
+
+    <div id="classified">
+      <h2>CLASSIFIED RESEARCH DATA</h2>
+      <p><strong>Project ████████ - Subject Logs:</strong></p>
+      <ul>
+        <li>████████ exhibits sentient behavior and advanced mimicry.</li>
+        <li>Security breach on ██/██/████ linked to containment failure.</li>
+        <li>DNA samples from Subject ████████ match unknown species group.</li>
+        <li>Do not engage without Level 5 clearance and anti-memetic training.</li>
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('password').value.trim().toLowerCase();
+      const auth = document.getElementById('auth');
+      const classified = document.getElementById('classified');
+      const error = document.getElementById('error');
+
+      if (input === 'kate' || input === 'jacob') {
+        auth.style.display = 'none';
+        classified.style.display = 'block';
+      } else {
+        error.style.display = 'block';
+        for (let i = 0; i < 5; i++) {
+          window.open('kj.html', '_blank');
+        }
+      }
+    }
+  </script>
+</body>
+</html>
