@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ERROR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
+
+    body.invert {
+      filter: invert(1);
+    }
+
+    img {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Replace this with your actual diary image -->
+  <img src="assets/kj.png" alt="kj" id="kj">
+
+  <script>
+    function glitchFlash() {
+      if (Math.random() < 0.1) { // 10% chance to flash every interval
+        document.body.classList.add('invert');
+        setTimeout(() => {
+          document.body.classList.remove('invert');
+        }, 100); // flash lasts for 100ms
+      }
+    }
+
+    setInterval(glitchFlash, 1000); // check every second
+  </script>
+</body>
+</html>
